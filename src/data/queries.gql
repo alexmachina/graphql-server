@@ -1,0 +1,33 @@
+query Videos {
+  videos {
+    id
+    title
+    duration
+  }
+}
+
+mutation M {
+  createVideo(video: { title: "foo", duration: 300, released: true }) {
+    id
+    title
+    duration
+  }
+}
+
+query Node {
+  node(id: "VmlkZW86YQ==") {
+    ... on Video {
+      title
+    }
+  }
+}
+
+{
+  videos {
+    edges {
+      node {
+        title
+      }
+    }
+  }
+}
