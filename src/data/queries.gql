@@ -31,3 +31,12 @@ query Node {
     }
   }
 }
+
+mutation AddVideo($input: AddVideoInput!) {
+  createVideo(input: $input) {
+    video {
+      id
+      title
+    }
+  }
+}
