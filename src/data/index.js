@@ -24,6 +24,16 @@ const getVideoById = (id) =>
   });
 
 const getVideos = () => Promise.resolve(videos);
-
+const createVideo = ({ title, duration, released }) => {
+  const video = {
+    id: new Buffer.from(title, "utf-8").toString("base64"),
+    title,
+    duration,
+    released,
+  };
+  videos.push(video);
+  return video;
+};
 exports.getVideos = getVideos;
 exports.getVideoById = getVideoById;
+exports.createVideo = createVideo;
